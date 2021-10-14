@@ -1,0 +1,13 @@
+{{ block title }}
+    Page title
+{{ endblock }}
+
+{% block content %}
+    You entered the number {{ player.number_entered }},
+    the factor was {{ Constants.factor }}, <br>
+    the result was {{ resultsz }}
+    {% comment %} include the form THIS IS A COMMENT OTREE WAY {% endcomment %}
+    {{ next_button }}
+{% endblock %}
+
+
