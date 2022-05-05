@@ -19,6 +19,11 @@ SESSION_CONFIGS = [
         display_name="Prisoner Dilemma Simple Version",
         num_demo_participants=4,
     ),
+    dict(
+         name='interruption_research',
+         app_sequence=['interruption_research'],
+         num_demo_participants=1,
+     ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs

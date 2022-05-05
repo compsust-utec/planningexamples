@@ -1,0 +1,33 @@
+{{ block title }}
+Cuestionario de ansiedad estado – rasgo (Stai)
+{{ endblock }}
+
+{{ block content }}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col" style="text-align: center; min-width: 90px;">Nada</th>
+      <th scope="col" style="text-align: center; min-width: 90px;">Algo</th>
+      <th scope="col" style="text-align: center; min-width: 90px;">Bastante</th>
+      <th scope="col" style="text-align: center; min-width: 90px;">Mucho</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ for field in form }}
+    <tr>
+      <td>{{ field.label }}</td>
+      {{ for choice in field }}
+      <td style="text-align: center; min-width: 90px;">
+        {{ choice }} {{choice.label}}
+      </td>
+      {{ endfor }}
+    </tr>
+    {{ endfor }}
+  </tbody>
+</table>
+
+{{ next_button }}
+
+{{ endblock }}
