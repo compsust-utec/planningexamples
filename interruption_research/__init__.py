@@ -786,7 +786,8 @@ class Task(Page):
         'case_1_start_time', 'case_2_start_time', 'case_3_start_time', 'case_4_start_time', 'case_5_start_time', 'case_6_start_time', 'case_7_start_time', 'case_8_start_time', 'case_9_start_time', 'case_10_start_time', 'case_11_start_time', 'case_12_start_time',
         'case_1_end_time', 'case_2_end_time', 'case_3_end_time', 'case_4_end_time', 'case_5_end_time', 'case_6_end_time', 'case_7_end_time', 'case_8_end_time', 'case_9_end_time', 'case_10_end_time', 'case_11_end_time', 'case_12_end_time',
         'case_1_error_count', 'case_2_error_count', 'case_3_error_count', 'case_4_error_count', 'case_5_error_count', 'case_6_error_count', 'case_7_error_count', 'case_8_error_count', 'case_9_error_count', 'case_10_error_count', 'case_11_error_count', 'case_12_error_count',
-        'list_intr_id', 'list_intr_time'
+        'list_intr_id', 'list_intr_time',
+        'start_date', 'end_date'
     ]
     
     pass
@@ -841,4 +842,3 @@ class FlowQuiz(Page):
     pass
 
 page_sequence = [DatosQuiz, Instrucciones, AtentionQuiz, BeginQuiz, MultiQuiz, Task, EndQuiz, FlowQuiz] #DatosQuiz, Instrucciones, AtentionQuiz, BeginQuiz,MultiQuiz,Task, EndQuiz, FlowQuiz
- #DatosQuiz, Instrucciones, AtentionQuiz, BeginQuiz,MultiQuiz,Task, EndQuiz, FlowQuiz
