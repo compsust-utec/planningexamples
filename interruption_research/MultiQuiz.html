@@ -1,0 +1,33 @@
+{{ block title }}
+Cuestionario de Multitasking
+{{ endblock }}
+
+{{ block content }}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col" style="text-align: center; min-width: 90px;">Estrategia 1</th>
+      <th scope="col" style="text-align: center; min-width: 90px;">Estrategia 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ for field in form }}
+    <tr>
+      <td>{{ field.label }}</td>
+      {{ for choice in field }}
+      <td style="text-align: center; min-width: 90px;">
+        {{ choice }} {{choice.label}}
+      </td>
+      {{ endfor }}
+    </tr>
+    {{ endfor }}
+  </tbody>
+</table>
+
+<button class="otree-btn-next btn btn-success">
+  Siguiente
+</button>
+
+{{ endblock }}

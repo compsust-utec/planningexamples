@@ -1,0 +1,35 @@
+{{ block title }}
+Cuestionario de la Ansiedad
+{{ endblock }}
+
+{{ block content }}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col" style="text-align: center; min-width: 90px;">Ningún día</th>
+      <th scope="col" style="text-align: center; min-width: 90px;">Varios días</th>
+      <th scope="col" style="text-align: center; min-width: 90px;">Más de la mitad de los días</th>
+      <th scope="col" style="text-align: center; min-width: 90px;">Casi todos los días</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ for field in form }}
+    <tr>
+      <td>{{ field.label }}</td>
+      {{ for choice in field }}
+      <td style="text-align: center; min-width: 90px;">
+        {{ choice }} {{choice.label}}
+      </td>
+      {{ endfor }}
+    </tr>
+    {{ endfor }}
+  </tbody>
+</table>
+
+<button class="otree-btn-next btn btn-success">
+  Siguiente
+</button>
+
+{{ endblock }}
