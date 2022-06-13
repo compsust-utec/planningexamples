@@ -7,7 +7,7 @@ Your description
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'simple_task'
+    NAME_IN_URL = 'interruption_research_2'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
 
@@ -53,7 +53,7 @@ class Player(BasePlayer):
     a_quiz_4  = models.IntegerField(
         choices=[[0, '25'], [1, '30'], [2, '40']],
         widget=widgets.RadioSelectHorizontal,
-        label='¿Cuántos puntos ganas si respondes un reclamo urgente dentro de lo 16 minutos?'
+        label='¿Cúantos puntos ganas si respondes un reclamo urgente dentro de lo 16 minutos?'
     )
 
     a_quiz_5  = models.IntegerField(
