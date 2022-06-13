@@ -34,23 +34,41 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
-    a_quiz_1  = models.IntegerField(
-        choices=[[0, '25'], [1, '30'], [2, '40']],
+    a_quiz_1 = models.IntegerField(
+        choices=[[0, 'Verdadero'], [1, 'Falso']],
         widget=widgets.RadioSelectHorizontal,
-        label='¿Cúantos puntos ganas si respondes un reclamo urgente dentro de lo 16 minutos? '
+        label='Existen dos tipos de tareas: regulares y urgentes'
+    )
+    a_quiz_2 = models.IntegerField(
+        choices=[[0, 'Verdadero'], [1, 'Falso']],
+        widget=widgets.RadioSelectHorizontal,
+        label='Todas los correos de reclamos están visibles en el inbox'
+    )
+    a_quiz_3 = models.IntegerField(
+        choices=[[0, 'Inbox'], [1, 'WhatsApp'], [2, 'Mensaje de texto']],
+        widget=widgets.RadioSelectHorizontal,
+        label='Todas las tareas llegarán a través de un ...'
     )
 
-    a_quiz_2  = models.IntegerField(
+    a_quiz_4  = models.IntegerField(
+        choices=[[0, '25'], [1, '30'], [2, '40']],
+        widget=widgets.RadioSelectHorizontal,
+        label='¿Cúantos puntos ganas si respondes un reclamo urgente dentro de lo 16 minutos?'
+    )
+
+    a_quiz_5  = models.IntegerField(
         choices=[[0, '10'], [1, '15'], [2, '5']],
         widget=widgets.RadioSelectHorizontal,
         label='¿Cuántos puntos ganas si responder un reclamo regular (no urgente) dentro de los 20 minutos?'
     )
 
-    a_quiz_3  = models.IntegerField(
+    a_quiz_6  = models.IntegerField(
         choices=[[0, '2'], [1, '1'], [2, '0']],
         widget=widgets.RadioSelectHorizontal,
         label='¿Cuántos puntos pierdes si tienes un error?'
     )
+
+    a_quiz_error_count = models.StringField()
 
     b_quiz_1 = models.IntegerField(
         choices=[[0, '0'], [1, '1'], [2, '2'], [3, '3']],
@@ -95,19 +113,19 @@ class Player(BasePlayer):
     )
 
     b_quiz_8 = models.IntegerField(
-        choices=[[0, 'Trabajar secuencialmente durante esa hora'], [1, 'Trabajar simultáneamente']],
+        choices=[[1, 'Trabajar secuencialmente durante esa hora'],[2, ' '],[3, 'Indiferente'],[4, ' '], [5, 'Trabajar simultáneamente']],
         widget=widgets.RadioSelect,
         label='1. Imagina que regresas al trabajo después de unas vacaciones y encuentras una pila de cartas en tu escritorio, 200 correos electrónicos en tu bandeja de entrada y diez mensajes en el contestador automático. Además, imagina que tienes una reunión dentro de una hora y quieres prepararte para varios temas tratados en esta reunión'
     )
 
     b_quiz_9 = models.IntegerField(
-        choices=[[0, 'Trabajar secuencialmente los cinco proyectos'], [1, 'Trabajar simultáneamente los cinco proyectos']],
+        choices=[[0, 'Trabajar secuencialmente los cinco proyectos'],[2, ' '],[3, 'Indiferente'],[4, ' '], [5, 'Trabajar simultáneamente los cinco proyectos']],
         widget=widgets.RadioSelect,
         label='2. Imagine que ha recibido cinco grandes proyectos a principios de año y que la fecha límite para los cinco proyectos es el final del año. Depende de usted cuándo planea trabajar en ellos.'
     )
 
     b_quiz_10 = models.IntegerField(
-        choices=[[0, 'Reanudar la tarea interrumpida después de la llamada telefónica'], [1, 'Cambiar a otra tarea']],
+        choices=[[0, 'Reanudar la tarea interrumpida después de la llamada telefónica'],[2, ' '],[3, 'Indiferente'],[4, ' '], [5, 'Cambiar a otra tarea']],
         widget=widgets.RadioSelect,
         label='3. Imagina que llevas una hora trabajando en una tarea cuando te interrumpe una llamada telefónica.'
     )
@@ -115,115 +133,115 @@ class Player(BasePlayer):
     e_quiz_1 = models.IntegerField(
         choices=[[0, '0'], [1, '1'], [2, '2'], [3, '3']],
         widget=widgets.RadioSelect,
-        label='1. Me siento nervioso, ansioso o al límite'
+        label='1. Me sentí nervioso, ansioso o al límite'
     )
     
     e_quiz_2 = models.IntegerField(
         choices=[[0, '0'], [1, '1'], [2, '2'], [3, '3']],
         widget=widgets.RadioSelect,
-        label='2. No me siento capaz de detener o controlar la preocupación'
+        label='2. No me sentí capaz de detener o controlar la preocupación'
     )
 
     e_quiz_3 = models.IntegerField(
         choices=[[0, '0'], [1, '1'], [2, '2'], [3, '3']],
         widget=widgets.RadioSelect,
-        label='3. Me preocupo demasiado por diferentes cosas'
+        label='3. Me preocupé demasiado por diferentes cosas'
     )
 
     e_quiz_4 = models.IntegerField(
         choices=[[0, '0'], [1, '1'], [2, '2'], [3, '3']],
         widget=widgets.RadioSelect,
-        label='4. Tengo problemas para relajarme'
+        label='4. Tuve problemas para relajarme'
     )
 
     e_quiz_5 = models.IntegerField(
         choices=[[0, '0'], [1, '1'], [2, '2'], [3, '3']],
         widget=widgets.RadioSelect,
-        label='5. Me es difícil quedarme quieto'
+        label='5. Me fue difícil quedarme quieto'
     )
 
     e_quiz_6 = models.IntegerField(
         choices=[[0, '0'], [1, '1'], [2, '2'], [3, '3']],
         widget=widgets.RadioSelect,
-        label='6. Me molesto o irrito fácilmente'
+        label='6. Me molesté o irrité fácilmente'
     )
 
     e_quiz_7 = models.IntegerField(
         choices=[[0, '0'], [1, '1'], [2, '2'], [3, '3']],
         widget=widgets.RadioSelect,
-        label='7. Siento miedo, como si algo terrible pudiera suceder'
+        label='7. Sentí miedo, como si algo terrible pudiera suceder'
     )
 
     f_quiz_1 = models.IntegerField(
-        choices=[[0, '0'], [1, '1'], [2, '2']],
+        choices=[[1, '1'],[2, '2'],[3, '3'],[4, '4'],[5, '5']],
         widget=widgets.RadioSelect,
         label='1. Sentí la cantidad justa de desafío'
     )
 
     f_quiz_2 = models.IntegerField(
-        choices=[[0, '0'], [1, '1'], [2, '2']],
+        choices=[[1, '1'],[2, '2'],[3, '3'],[4, '4'],[5, '5']],
         widget=widgets.RadioSelect,
         label='2. Mis pensamientos/actividades funcionaron con fluidez y sin problemas'
     )
 
     f_quiz_3 = models.IntegerField(
-        choices=[[0, '0'], [1, '1'], [2, '2']],
+        choices=[[1, '1'],[2, '2'],[3, '3'],[4, '4'],[5, '5']],
         widget=widgets.RadioSelect,
         label='3. No noté el paso del tiempo'
     )
 
     f_quiz_4 = models.IntegerField(
-        choices=[[0, '0'], [1, '1'], [2, '2']],
+        choices=[[1, '1'],[2, '2'],[3, '3'],[4, '4'],[5, '5']],
         widget=widgets.RadioSelect,
         label='4. No tuve dificultad para concentrarme'
     )
 
     f_quiz_5 = models.IntegerField(
-        choices=[[0, '0'], [1, '1'], [2, '2']],
+        choices=[[1, '1'],[2, '2'],[3, '3'],[4, '4'],[5, '5']],
         widget=widgets.RadioSelect,
         label='5. Mi mente estaba completamente clara'
     )
 
     f_quiz_6 = models.IntegerField(
-        choices=[[0, '0'], [1, '1'], [2, '2']],
+        choices=[[1, '1'],[2, '2'],[3, '3'],[4, '4'],[5, '5']],
         widget=widgets.RadioSelect,
         label='6. Estuve totalmente concentrado en lo que estoy haciendo'
     )
 
     f_quiz_7 = models.IntegerField(
-        choices=[[0, '0'], [1, '1'], [2, '2']],
+        choices=[[1, '1'],[2, '2'],[3, '3'],[4, '4'],[5, '5']],
         widget=widgets.RadioSelect,
         label='7. Los pensamientos correctos ocurrían por sí solos'
     )
     f_quiz_8 = models.IntegerField(
-        choices=[[0, '0'], [1, '1'], [2, '2']],
+        choices=[[1, '1'],[2, '2'],[3, '3'],[4, '4'],[5, '5']],
         widget=widgets.RadioSelect,
         label='8. Supe lo que tenía que hacer en cada paso del camino'
     )
     f_quiz_9 = models.IntegerField(
-        choices=[[0, '0'], [1, '1'], [2, '2']],
+        choices=[[1, '1'],[2, '2'],[3, '3'],[4, '4'],[5, '5']],
         widget=widgets.RadioSelect,
         label='9. Sentí que tenía todo bajo control'
     )
 
     f_quiz_10 = models.IntegerField(
-        choices=[[0, '0'], [1, '1'], [2, '2']],
+        choices=[[1, '1'],[2, '2'],[3, '3'],[4, '4'],[5, '5']],
         widget=widgets.RadioSelect,
         label='10. Estuve completamente perdido en mis pensamientos'
     )
 
     f_quiz_11 = models.IntegerField(
-        choices=[[0, '0'], [1, '1'], [2, '2']],
+        choices=[[1, '1'],[2, '2'],[3, '3'],[4, '4'],[5, '5']],
         widget=widgets.RadioSelect,
         label='11. Algo importante para mí está en juego aquí'
     )
     f_quiz_12 = models.IntegerField(
-        choices=[[0, '0'], [1, '1'], [2, '2']],
+        choices=[[1, '1'],[2, '2'],[3, '3'],[4, '4'],[5, '5']],
         widget=widgets.RadioSelect,
         label='12. Cometí algún error en el juego'
     )
     f_quiz_13 = models.IntegerField(
-        choices=[[0, '0'], [1, '1'], [2, '2']],
+        choices=[[1, '1'],[2, '2'],[3, '3'],[4, '4'],[5, '5']],
         widget=widgets.RadioSelect,
         label='13. Me preocupé en fallar'
     )
@@ -263,40 +281,6 @@ class Player(BasePlayer):
     case_1_step_5_1 = models.StringField()
 
 
-    ## CASE 2 - SIMPLE
-
-    case_2_step_1_nombre = models.StringField()
-    case_2_step_1_apellido = models.StringField()
-    case_2_step_1_codigo = models.StringField()
-    case_2_step_1_tipo_seguro = models.StringField()
-    case_2_step_1_fecha_vencimiento = models.StringField()
-
-    case_2_step_2_1 = models.IntegerField(
-        choices=[[1, 'Si'], [2, 'No']],
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    case_2_step_2_2 = models.IntegerField(
-        choices=[[1, 'Plan Diamante'], [2, 'Plan Oro'], [3, 'Plan Plata'], [4, 'Plan Regular']],
-        widget=widgets.RadioSelect
-    )
-
-    case_2_step_3_1 = models.IntegerField(
-        choices=[[1, 'Si'], [2, 'No']],
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    case_2_step_4_1 = models.IntegerField(
-        choices=[
-            [1, 'El reclamo es aceptado'],
-            [2, 'El reclamo es rechazado']
-        ],
-        widget=widgets.RadioSelect
-    )
-
-    case_2_step_5_1 = models.StringField()
-
-
     ## CASE 3 - SIMPLE
 
     case_3_step_1_nombre = models.StringField()
@@ -331,30 +315,30 @@ class Player(BasePlayer):
     case_3_step_5_1 = models.StringField()
 
 
-    ## CASE 6 - SIMPLE
+    ## CASE 4 - SIMPLE
 
-    case_6_step_1_nombre = models.StringField()
-    case_6_step_1_apellido = models.StringField()
-    case_6_step_1_codigo = models.StringField()
-    case_6_step_1_tipo_seguro = models.StringField()
-    case_6_step_1_fecha_vencimiento = models.StringField()
+    case_4_step_1_nombre = models.StringField()
+    case_4_step_1_apellido = models.StringField()
+    case_4_step_1_codigo = models.StringField()
+    case_4_step_1_tipo_seguro = models.StringField()
+    case_4_step_1_fecha_vencimiento = models.StringField()
 
-    case_6_step_2_1 = models.IntegerField(
+    case_4_step_2_1 = models.IntegerField(
         choices=[[1, 'Si'], [2, 'No']],
         widget=widgets.RadioSelectHorizontal
     )
 
-    case_6_step_2_2 = models.IntegerField(
+    case_4_step_2_2 = models.IntegerField(
         choices=[[1, 'Plan Diamante'], [2, 'Plan Oro'], [3, 'Plan Plata'], [4, 'Plan Regular']],
         widget=widgets.RadioSelect
     )
 
-    case_6_step_3_1 = models.IntegerField(
+    case_4_step_3_1 = models.IntegerField(
         choices=[[1, 'Si'], [2, 'No']],
         widget=widgets.RadioSelectHorizontal
     )
 
-    case_6_step_4_1 = models.IntegerField(
+    case_4_step_4_1 = models.IntegerField(
         choices=[
             [1, 'El reclamo es aceptado'],
             [2, 'El reclamo es rechazado']
@@ -362,33 +346,33 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
-    case_6_step_5_1 = models.StringField()
+    case_4_step_5_1 = models.StringField()
 
 
-    ## CASE 8 - SIMPLE
+    ## CASE 5 - SIMPLE
 
-    case_8_step_1_nombre = models.StringField()
-    case_8_step_1_apellido = models.StringField()
-    case_8_step_1_codigo = models.StringField()
-    case_8_step_1_tipo_seguro = models.StringField()
-    case_8_step_1_fecha_vencimiento = models.StringField()
+    case_5_step_1_nombre = models.StringField()
+    case_5_step_1_apellido = models.StringField()
+    case_5_step_1_codigo = models.StringField()
+    case_5_step_1_tipo_seguro = models.StringField()
+    case_5_step_1_fecha_vencimiento = models.StringField()
 
-    case_8_step_2_1 = models.IntegerField(
+    case_5_step_2_1 = models.IntegerField(
         choices=[[1, 'Si'], [2, 'No']],
         widget=widgets.RadioSelectHorizontal
     )
 
-    case_8_step_2_2 = models.IntegerField(
+    case_5_step_2_2 = models.IntegerField(
         choices=[[1, 'Plan Diamante'], [2, 'Plan Oro'], [3, 'Plan Plata'], [4, 'Plan Regular']],
         widget=widgets.RadioSelect
     )
 
-    case_8_step_3_1 = models.IntegerField(
+    case_5_step_3_1 = models.IntegerField(
         choices=[[1, 'Si'], [2, 'No']],
         widget=widgets.RadioSelectHorizontal
     )
 
-    case_8_step_4_1 = models.IntegerField(
+    case_5_step_4_1 = models.IntegerField(
         choices=[
             [1, 'El reclamo es aceptado'],
             [2, 'El reclamo es rechazado']
@@ -396,33 +380,33 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
-    case_8_step_5_1 = models.StringField()
+    case_5_step_5_1 = models.StringField()
 
 
-    ## CASE 10 - SIMPLE
+    ## CASE 9 - SIMPLE
 
-    case_10_step_1_nombre = models.StringField()
-    case_10_step_1_apellido = models.StringField()
-    case_10_step_1_codigo = models.StringField()
-    case_10_step_1_tipo_seguro = models.StringField()
-    case_10_step_1_fecha_vencimiento = models.StringField()
+    case_9_step_1_nombre = models.StringField()
+    case_9_step_1_apellido = models.StringField()
+    case_9_step_1_codigo = models.StringField()
+    case_9_step_1_tipo_seguro = models.StringField()
+    case_9_step_1_fecha_vencimiento = models.StringField()
 
-    case_10_step_2_1 = models.IntegerField(
+    case_9_step_2_1 = models.IntegerField(
         choices=[[1, 'Si'], [2, 'No']],
         widget=widgets.RadioSelectHorizontal
     )
 
-    case_10_step_2_2 = models.IntegerField(
+    case_9_step_2_2 = models.IntegerField(
         choices=[[1, 'Plan Diamante'], [2, 'Plan Oro'], [3, 'Plan Plata'], [4, 'Plan Regular']],
         widget=widgets.RadioSelect
     )
 
-    case_10_step_3_1 = models.IntegerField(
+    case_9_step_3_1 = models.IntegerField(
         choices=[[1, 'Si'], [2, 'No']],
         widget=widgets.RadioSelectHorizontal
     )
 
-    case_10_step_4_1 = models.IntegerField(
+    case_9_step_4_1 = models.IntegerField(
         choices=[
             [1, 'El reclamo es aceptado'],
             [2, 'El reclamo es rechazado']
@@ -430,7 +414,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
-    case_10_step_5_1 = models.StringField()
+    case_9_step_5_1 = models.StringField()
 
 
     ## CASE 11 - SIMPLE
@@ -467,43 +451,30 @@ class Player(BasePlayer):
     case_11_step_5_1 = models.StringField()
 
 
-    ## CASE 4 - COMPLEX
+    ## CASE 13 - SIMPLE
 
-    case_4_step_1_nombre = models.StringField()
-    case_4_step_1_apellido = models.StringField()
-    case_4_step_1_codigo = models.StringField()
-    case_4_step_1_tipo_seguro = models.StringField()
-    case_4_step_1_fecha_vencimiento = models.StringField()
+    case_13_step_1_nombre = models.StringField()
+    case_13_step_1_apellido = models.StringField()
+    case_13_step_1_codigo = models.StringField()
+    case_13_step_1_tipo_seguro = models.StringField()
+    case_13_step_1_fecha_vencimiento = models.StringField()
 
-    case_4_step_2_1 = models.IntegerField(
+    case_13_step_2_1 = models.IntegerField(
         choices=[[1, 'Si'], [2, 'No']],
         widget=widgets.RadioSelectHorizontal
     )
 
-    case_4_step_2_2 = models.IntegerField(
+    case_13_step_2_2 = models.IntegerField(
         choices=[[1, 'Plan Diamante'], [2, 'Plan Oro'], [3, 'Plan Plata'], [4, 'Plan Regular']],
         widget=widgets.RadioSelect
     )
 
-    case_4_step_3_1 = models.IntegerField(
+    case_13_step_3_1 = models.IntegerField(
         choices=[[1, 'Si'], [2, 'No']],
         widget=widgets.RadioSelectHorizontal
     )
 
-    case_4_step_4_propietario = models.StringField()
-    case_4_step_4_nombre = models.StringField()
-    case_4_step_4_direccion = models.StringField()
-    case_4_step_4_placa = models.StringField()
-
-    case_4_step_5_1 = models.IntegerField(
-        choices=[
-            [1, 'Sí, la información proporcionada en el reclamo es consistente con el Informe Técnico.'],
-            [2, 'No, la información proporcionada en el reclamo es inconsistente con el Informe Técnico.']
-        ],
-        widget=widgets.RadioSelect
-    )
-
-    case_4_step_6_1 = models.IntegerField(
+    case_13_step_4_1 = models.IntegerField(
         choices=[
             [1, 'El reclamo es aceptado'],
             [2, 'El reclamo es rechazado']
@@ -511,46 +482,33 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
-    case_4_step_7_1 = models.StringField()
+    case_13_step_5_1 = models.StringField()
 
 
-    ## CASE 5 - COMPLEX
+    ## CASE 14 - SIMPLE
 
-    case_5_step_1_nombre = models.StringField()
-    case_5_step_1_apellido = models.StringField()
-    case_5_step_1_codigo = models.StringField()
-    case_5_step_1_tipo_seguro = models.StringField()
-    case_5_step_1_fecha_vencimiento = models.StringField()
+    case_14_step_1_nombre = models.StringField()
+    case_14_step_1_apellido = models.StringField()
+    case_14_step_1_codigo = models.StringField()
+    case_14_step_1_tipo_seguro = models.StringField()
+    case_14_step_1_fecha_vencimiento = models.StringField()
 
-    case_5_step_2_1 = models.IntegerField(
+    case_14_step_2_1 = models.IntegerField(
         choices=[[1, 'Si'], [2, 'No']],
         widget=widgets.RadioSelectHorizontal
     )
 
-    case_5_step_2_2 = models.IntegerField(
+    case_14_step_2_2 = models.IntegerField(
         choices=[[1, 'Plan Diamante'], [2, 'Plan Oro'], [3, 'Plan Plata'], [4, 'Plan Regular']],
         widget=widgets.RadioSelect
     )
 
-    case_5_step_3_1 = models.IntegerField(
+    case_14_step_3_1 = models.IntegerField(
         choices=[[1, 'Si'], [2, 'No']],
         widget=widgets.RadioSelectHorizontal
     )
 
-    case_5_step_4_propietario = models.StringField()
-    case_5_step_4_nombre = models.StringField()
-    case_5_step_4_direccion = models.StringField()
-    case_5_step_4_placa = models.StringField()
-
-    case_5_step_5_1 = models.IntegerField(
-        choices=[
-            [1, 'Sí, la información proporcionada en el reclamo es consistente con el Informe Técnico.'],
-            [2, 'No, la información proporcionada en el reclamo es inconsistente con el Informe Técnico.']
-        ],
-        widget=widgets.RadioSelect
-    )
-
-    case_5_step_6_1 = models.IntegerField(
+    case_14_step_4_1 = models.IntegerField(
         choices=[
             [1, 'El reclamo es aceptado'],
             [2, 'El reclamo es rechazado']
@@ -558,7 +516,101 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
-    case_5_step_7_1 = models.StringField()
+    case_14_step_5_1 = models.StringField()
+
+
+    ## CASE 2 - COMPLEX
+
+    case_2_step_1_nombre = models.StringField()
+    case_2_step_1_apellido = models.StringField()
+    case_2_step_1_codigo = models.StringField()
+    case_2_step_1_tipo_seguro = models.StringField()
+    case_2_step_1_fecha_vencimiento = models.StringField()
+
+    case_2_step_2_1 = models.IntegerField(
+        choices=[[1, 'Si'], [2, 'No']],
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    case_2_step_2_2 = models.IntegerField(
+        choices=[[1, 'Plan Diamante'], [2, 'Plan Oro'], [3, 'Plan Plata'], [4, 'Plan Regular']],
+        widget=widgets.RadioSelect
+    )
+
+    case_2_step_3_1 = models.IntegerField(
+        choices=[[1, 'Si'], [2, 'No']],
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    case_2_step_4_propietario = models.StringField()
+    case_2_step_4_nombre = models.StringField()
+    case_2_step_4_direccion = models.StringField()
+    case_2_step_4_placa = models.StringField()
+
+    case_2_step_5_1 = models.IntegerField(
+        choices=[
+            [1, 'Sí, la información proporcionada en el reclamo es consistente con el Informe Técnico.'],
+            [2, 'No, la información proporcionada en el reclamo es inconsistente con el Informe Técnico.']
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    case_2_step_6_1 = models.IntegerField(
+        choices=[
+            [1, 'El reclamo es aceptado'],
+            [2, 'El reclamo es rechazado']
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    case_2_step_7_1 = models.StringField()
+
+
+    ## CASE 6 - COMPLEX
+
+    case_6_step_1_nombre = models.StringField()
+    case_6_step_1_apellido = models.StringField()
+    case_6_step_1_codigo = models.StringField()
+    case_6_step_1_tipo_seguro = models.StringField()
+    case_6_step_1_fecha_vencimiento = models.StringField()
+
+    case_6_step_2_1 = models.IntegerField(
+        choices=[[1, 'Si'], [2, 'No']],
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    case_6_step_2_2 = models.IntegerField(
+        choices=[[1, 'Plan Diamante'], [2, 'Plan Oro'], [3, 'Plan Plata'], [4, 'Plan Regular']],
+        widget=widgets.RadioSelect
+    )
+
+    case_6_step_3_1 = models.IntegerField(
+        choices=[[1, 'Si'], [2, 'No']],
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    case_6_step_4_propietario = models.StringField()
+    case_6_step_4_nombre = models.StringField()
+    case_6_step_4_direccion = models.StringField()
+    case_6_step_4_placa = models.StringField()
+
+    case_6_step_5_1 = models.IntegerField(
+        choices=[
+            [1, 'Sí, la información proporcionada en el reclamo es consistente con el Informe Técnico.'],
+            [2, 'No, la información proporcionada en el reclamo es inconsistente con el Informe Técnico.']
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    case_6_step_6_1 = models.IntegerField(
+        choices=[
+            [1, 'El reclamo es aceptado'],
+            [2, 'El reclamo es rechazado']
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    case_6_step_7_1 = models.StringField()
 
 
     ## CASE 7 - COMPLEX
@@ -608,35 +660,35 @@ class Player(BasePlayer):
     case_7_step_7_1 = models.StringField()
 
 
-    ## CASE 9 - COMPLEX
+    ## CASE 8 - COMPLEX
 
-    case_9_step_1_nombre = models.StringField()
-    case_9_step_1_apellido = models.StringField()
-    case_9_step_1_codigo = models.StringField()
-    case_9_step_1_tipo_seguro = models.StringField()
-    case_9_step_1_fecha_vencimiento = models.StringField()
+    case_8_step_1_nombre = models.StringField()
+    case_8_step_1_apellido = models.StringField()
+    case_8_step_1_codigo = models.StringField()
+    case_8_step_1_tipo_seguro = models.StringField()
+    case_8_step_1_fecha_vencimiento = models.StringField()
 
-    case_9_step_2_1 = models.IntegerField(
+    case_8_step_2_1 = models.IntegerField(
         choices=[[1, 'Si'], [2, 'No']],
         widget=widgets.RadioSelectHorizontal
     )
 
-    case_9_step_2_2 = models.IntegerField(
+    case_8_step_2_2 = models.IntegerField(
         choices=[[1, 'Plan Diamante'], [2, 'Plan Oro'], [3, 'Plan Plata'], [4, 'Plan Regular']],
         widget=widgets.RadioSelect
     )
 
-    case_9_step_3_1 = models.IntegerField(
+    case_8_step_3_1 = models.IntegerField(
         choices=[[1, 'Si'], [2, 'No']],
         widget=widgets.RadioSelectHorizontal
     )
 
-    case_9_step_4_propietario = models.StringField()
-    case_9_step_4_nombre = models.StringField()
-    case_9_step_4_direccion = models.StringField()
-    case_9_step_4_placa = models.StringField()
+    case_8_step_4_propietario = models.StringField()
+    case_8_step_4_nombre = models.StringField()
+    case_8_step_4_direccion = models.StringField()
+    case_8_step_4_placa = models.StringField()
 
-    case_9_step_5_1 = models.IntegerField(
+    case_8_step_5_1 = models.IntegerField(
         choices=[
             [1, 'Sí, la información proporcionada en el reclamo es consistente con el Informe Técnico.'],
             [2, 'No, la información proporcionada en el reclamo es inconsistente con el Informe Técnico.']
@@ -644,7 +696,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
-    case_9_step_6_1 = models.IntegerField(
+    case_8_step_6_1 = models.IntegerField(
         choices=[
             [1, 'El reclamo es aceptado'],
             [2, 'El reclamo es rechazado']
@@ -652,7 +704,54 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
-    case_9_step_7_1 = models.StringField()
+    case_8_step_7_1 = models.StringField()
+
+
+    ## CASE 10 - COMPLEX
+
+    case_10_step_1_nombre = models.StringField()
+    case_10_step_1_apellido = models.StringField()
+    case_10_step_1_codigo = models.StringField()
+    case_10_step_1_tipo_seguro = models.StringField()
+    case_10_step_1_fecha_vencimiento = models.StringField()
+
+    case_10_step_2_1 = models.IntegerField(
+        choices=[[1, 'Si'], [2, 'No']],
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    case_10_step_2_2 = models.IntegerField(
+        choices=[[1, 'Plan Diamante'], [2, 'Plan Oro'], [3, 'Plan Plata'], [4, 'Plan Regular']],
+        widget=widgets.RadioSelect
+    )
+
+    case_10_step_3_1 = models.IntegerField(
+        choices=[[1, 'Si'], [2, 'No']],
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    case_10_step_4_propietario = models.StringField()
+    case_10_step_4_nombre = models.StringField()
+    case_10_step_4_direccion = models.StringField()
+    case_10_step_4_placa = models.StringField()
+
+    case_10_step_5_1 = models.IntegerField(
+        choices=[
+            [1, 'Sí, la información proporcionada en el reclamo es consistente con el Informe Técnico.'],
+            [2, 'No, la información proporcionada en el reclamo es inconsistente con el Informe Técnico.']
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    case_10_step_6_1 = models.IntegerField(
+        choices=[
+            [1, 'El reclamo es aceptado'],
+            [2, 'El reclamo es rechazado']
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    case_10_step_7_1 = models.StringField()
 
 
     ## CASE 12 - COMPLEX
@@ -701,6 +800,54 @@ class Player(BasePlayer):
 
     case_12_step_7_1 = models.StringField()
 
+
+    ## CASE 15 - COMPLEX
+
+    case_15_step_1_nombre = models.StringField()
+    case_15_step_1_apellido = models.StringField()
+    case_15_step_1_codigo = models.StringField()
+    case_15_step_1_tipo_seguro = models.StringField()
+    case_15_step_1_fecha_vencimiento = models.StringField()
+
+    case_15_step_2_1 = models.IntegerField(
+        choices=[[1, 'Si'], [2, 'No']],
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    case_15_step_2_2 = models.IntegerField(
+        choices=[[1, 'Plan Diamante'], [2, 'Plan Oro'], [3, 'Plan Plata'], [4, 'Plan Regular']],
+        widget=widgets.RadioSelect
+    )
+
+    case_15_step_3_1 = models.IntegerField(
+        choices=[[1, 'Si'], [2, 'No']],
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    case_15_step_4_propietario = models.StringField()
+    case_15_step_4_nombre = models.StringField()
+    case_15_step_4_direccion = models.StringField()
+    case_15_step_4_placa = models.StringField()
+
+    case_15_step_5_1 = models.IntegerField(
+        choices=[
+            [1, 'Sí, la información proporcionada en el reclamo es consistente con el Informe Técnico.'],
+            [2, 'No, la información proporcionada en el reclamo es inconsistente con el Informe Técnico.']
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    case_15_step_6_1 = models.IntegerField(
+        choices=[
+            [1, 'El reclamo es aceptado'],
+            [2, 'El reclamo es rechazado']
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    case_15_step_7_1 = models.StringField()
+
+
     ## EXTRA METRICS
 
     start_date = models.StringField()
@@ -718,6 +865,25 @@ class Player(BasePlayer):
     case_10_urgent = models.BooleanField()
     case_11_urgent = models.BooleanField()
     case_12_urgent = models.BooleanField()
+    case_13_urgent = models.BooleanField()
+    case_14_urgent = models.BooleanField()
+    case_15_urgent = models.BooleanField()
+
+    case_1_send_time = models.StringField()
+    case_2_send_time = models.StringField()
+    case_3_send_time = models.StringField()
+    case_4_send_time = models.StringField()
+    case_5_send_time = models.StringField()
+    case_6_send_time = models.StringField()
+    case_7_send_time = models.StringField()
+    case_8_send_time = models.StringField()
+    case_9_send_time = models.StringField()
+    case_10_send_time = models.StringField()
+    case_11_send_time = models.StringField()
+    case_12_send_time = models.StringField()
+    case_13_send_time = models.StringField()
+    case_14_send_time = models.StringField()
+    case_15_send_time = models.StringField()
 
     case_1_start_time = models.StringField()
     case_2_start_time = models.StringField()
@@ -731,6 +897,9 @@ class Player(BasePlayer):
     case_10_start_time = models.StringField()
     case_11_start_time = models.StringField()
     case_12_start_time = models.StringField()
+    case_13_start_time = models.StringField()
+    case_14_start_time = models.StringField()
+    case_15_start_time = models.StringField()
 
     case_1_end_time = models.StringField()
     case_2_end_time = models.StringField()
@@ -744,6 +913,9 @@ class Player(BasePlayer):
     case_10_end_time = models.StringField()
     case_11_end_time = models.StringField()
     case_12_end_time = models.StringField()
+    case_13_end_time = models.StringField()
+    case_14_end_time = models.StringField()
+    case_15_end_time = models.StringField()
 
     case_1_error_count = models.StringField()
     case_2_error_count = models.StringField()
@@ -757,6 +929,9 @@ class Player(BasePlayer):
     case_10_error_count = models.StringField()
     case_11_error_count = models.StringField()
     case_12_error_count = models.StringField()
+    case_13_error_count = models.StringField()
+    case_14_error_count = models.StringField()
+    case_15_error_count = models.StringField()
 
     list_intr_id = models.StringField()
     list_intr_time = models.StringField()
@@ -769,27 +944,30 @@ class Task(Page):
     form_model = 'player'
     form_fields = [
         'case_1_step_1_nombre', 'case_1_step_1_apellido', 'case_1_step_1_codigo', 'case_1_step_1_tipo_seguro', 'case_1_step_1_fecha_vencimiento', 'case_1_step_2_1', 'case_1_step_2_2', 'case_1_step_3_1', 'case_1_step_4_1', 'case_1_step_5_1',
-        'case_2_step_1_nombre', 'case_2_step_1_apellido', 'case_2_step_1_codigo', 'case_2_step_1_tipo_seguro', 'case_2_step_1_fecha_vencimiento', 'case_2_step_2_1', 'case_2_step_2_2', 'case_2_step_3_1', 'case_2_step_4_1', 'case_2_step_5_1',
         'case_3_step_1_nombre', 'case_3_step_1_apellido', 'case_3_step_1_codigo', 'case_3_step_1_tipo_seguro', 'case_3_step_1_fecha_vencimiento', 'case_3_step_2_1', 'case_3_step_2_2', 'case_3_step_3_1', 'case_3_step_4_1', 'case_3_step_5_1',
-        'case_6_step_1_nombre', 'case_6_step_1_apellido', 'case_6_step_1_codigo', 'case_6_step_1_tipo_seguro', 'case_6_step_1_fecha_vencimiento', 'case_6_step_2_1', 'case_6_step_2_2', 'case_6_step_3_1', 'case_6_step_4_1', 'case_6_step_5_1',
-        'case_8_step_1_nombre', 'case_8_step_1_apellido', 'case_8_step_1_codigo', 'case_8_step_1_tipo_seguro', 'case_8_step_1_fecha_vencimiento', 'case_8_step_2_1', 'case_8_step_2_2', 'case_8_step_3_1', 'case_8_step_4_1', 'case_8_step_5_1',
-        'case_10_step_1_nombre', 'case_10_step_1_apellido', 'case_10_step_1_codigo', 'case_10_step_1_tipo_seguro', 'case_10_step_1_fecha_vencimiento', 'case_10_step_2_1', 'case_10_step_2_2', 'case_10_step_3_1', 'case_10_step_4_1', 'case_10_step_5_1',
+        'case_4_step_1_nombre', 'case_4_step_1_apellido', 'case_4_step_1_codigo', 'case_4_step_1_tipo_seguro', 'case_4_step_1_fecha_vencimiento', 'case_4_step_2_1', 'case_4_step_2_2', 'case_4_step_3_1', 'case_4_step_4_1', 'case_4_step_5_1',
+        'case_5_step_1_nombre', 'case_5_step_1_apellido', 'case_5_step_1_codigo', 'case_5_step_1_tipo_seguro', 'case_5_step_1_fecha_vencimiento', 'case_5_step_2_1', 'case_5_step_2_2', 'case_5_step_3_1', 'case_5_step_4_1', 'case_5_step_5_1',
+        'case_9_step_1_nombre', 'case_9_step_1_apellido', 'case_9_step_1_codigo', 'case_9_step_1_tipo_seguro', 'case_9_step_1_fecha_vencimiento', 'case_9_step_2_1', 'case_9_step_2_2', 'case_9_step_3_1', 'case_9_step_4_1', 'case_9_step_5_1',
         'case_11_step_1_nombre', 'case_11_step_1_apellido', 'case_11_step_1_codigo', 'case_11_step_1_tipo_seguro', 'case_11_step_1_fecha_vencimiento', 'case_11_step_2_1', 'case_11_step_2_2', 'case_11_step_3_1', 'case_11_step_4_1', 'case_11_step_5_1',
+        'case_13_step_1_nombre', 'case_13_step_1_apellido', 'case_13_step_1_codigo', 'case_13_step_1_tipo_seguro', 'case_13_step_1_fecha_vencimiento', 'case_13_step_2_1', 'case_13_step_2_2', 'case_13_step_3_1', 'case_13_step_4_1', 'case_13_step_5_1',
+        'case_14_step_1_nombre', 'case_14_step_1_apellido', 'case_14_step_1_codigo', 'case_14_step_1_tipo_seguro', 'case_14_step_1_fecha_vencimiento', 'case_14_step_2_1', 'case_14_step_2_2', 'case_14_step_3_1', 'case_14_step_4_1', 'case_14_step_5_1',
 
-        'case_4_step_1_nombre', 'case_4_step_1_apellido', 'case_4_step_1_codigo', 'case_4_step_1_tipo_seguro', 'case_4_step_1_fecha_vencimiento', 'case_4_step_2_1', 'case_4_step_2_2', 'case_4_step_3_1', 'case_4_step_4_propietario', 'case_4_step_4_nombre', 'case_4_step_4_direccion', 'case_4_step_4_placa', 'case_4_step_5_1', 'case_4_step_6_1', 'case_4_step_7_1',
-        'case_5_step_1_nombre', 'case_5_step_1_apellido', 'case_5_step_1_codigo', 'case_5_step_1_tipo_seguro', 'case_5_step_1_fecha_vencimiento', 'case_5_step_2_1', 'case_5_step_2_2', 'case_5_step_3_1', 'case_5_step_4_propietario', 'case_5_step_4_nombre', 'case_5_step_4_direccion', 'case_5_step_4_placa', 'case_5_step_5_1', 'case_5_step_6_1', 'case_5_step_7_1',
+        'case_2_step_1_nombre', 'case_2_step_1_apellido', 'case_2_step_1_codigo', 'case_2_step_1_tipo_seguro', 'case_2_step_1_fecha_vencimiento', 'case_2_step_2_1', 'case_2_step_2_2', 'case_2_step_3_1', 'case_2_step_4_propietario', 'case_2_step_4_nombre', 'case_2_step_4_direccion', 'case_2_step_4_placa', 'case_2_step_5_1', 'case_2_step_6_1', 'case_2_step_7_1',
+        'case_6_step_1_nombre', 'case_6_step_1_apellido', 'case_6_step_1_codigo', 'case_6_step_1_tipo_seguro', 'case_6_step_1_fecha_vencimiento', 'case_6_step_2_1', 'case_6_step_2_2', 'case_6_step_3_1', 'case_6_step_4_propietario', 'case_6_step_4_nombre', 'case_6_step_4_direccion', 'case_6_step_4_placa', 'case_6_step_5_1', 'case_6_step_6_1', 'case_6_step_7_1',
         'case_7_step_1_nombre', 'case_7_step_1_apellido', 'case_7_step_1_codigo', 'case_7_step_1_tipo_seguro', 'case_7_step_1_fecha_vencimiento', 'case_7_step_2_1', 'case_7_step_2_2', 'case_7_step_3_1', 'case_7_step_4_propietario', 'case_7_step_4_nombre', 'case_7_step_4_direccion', 'case_7_step_4_placa', 'case_7_step_5_1', 'case_7_step_6_1', 'case_7_step_7_1',
-        'case_9_step_1_nombre', 'case_9_step_1_apellido', 'case_9_step_1_codigo', 'case_9_step_1_tipo_seguro', 'case_9_step_1_fecha_vencimiento', 'case_9_step_2_1', 'case_9_step_2_2', 'case_9_step_3_1', 'case_9_step_4_propietario', 'case_9_step_4_nombre', 'case_9_step_4_direccion', 'case_9_step_4_placa', 'case_9_step_5_1', 'case_9_step_6_1', 'case_9_step_7_1',
+        'case_8_step_1_nombre', 'case_8_step_1_apellido', 'case_8_step_1_codigo', 'case_8_step_1_tipo_seguro', 'case_8_step_1_fecha_vencimiento', 'case_8_step_2_1', 'case_8_step_2_2', 'case_8_step_3_1', 'case_8_step_4_propietario', 'case_8_step_4_nombre', 'case_8_step_4_direccion', 'case_8_step_4_placa', 'case_8_step_5_1', 'case_8_step_6_1', 'case_8_step_7_1',
+        'case_10_step_1_nombre', 'case_10_step_1_apellido', 'case_10_step_1_codigo', 'case_10_step_1_tipo_seguro', 'case_10_step_1_fecha_vencimiento', 'case_10_step_2_1', 'case_10_step_2_2', 'case_10_step_3_1', 'case_10_step_4_propietario', 'case_10_step_4_nombre', 'case_10_step_4_direccion', 'case_10_step_4_placa', 'case_10_step_5_1', 'case_10_step_6_1', 'case_10_step_7_1',
         'case_12_step_1_nombre', 'case_12_step_1_apellido', 'case_12_step_1_codigo', 'case_12_step_1_tipo_seguro', 'case_12_step_1_fecha_vencimiento', 'case_12_step_2_1', 'case_12_step_2_2', 'case_12_step_3_1', 'case_12_step_4_propietario', 'case_12_step_4_nombre', 'case_12_step_4_direccion', 'case_12_step_4_placa', 'case_12_step_5_1', 'case_12_step_6_1', 'case_12_step_7_1',
+        'case_15_step_1_nombre', 'case_15_step_1_apellido', 'case_15_step_1_codigo', 'case_15_step_1_tipo_seguro', 'case_15_step_1_fecha_vencimiento', 'case_15_step_2_1', 'case_15_step_2_2', 'case_15_step_3_1', 'case_15_step_4_propietario', 'case_15_step_4_nombre', 'case_15_step_4_direccion', 'case_15_step_4_placa', 'case_15_step_5_1', 'case_15_step_6_1', 'case_15_step_7_1',
         
-        'case_1_urgent', 'case_2_urgent', 'case_3_urgent', 'case_4_urgent', 'case_5_urgent', 'case_6_urgent', 'case_7_urgent', 'case_8_urgent', 'case_9_urgent', 'case_10_urgent', 'case_11_urgent', 'case_12_urgent',
-        'case_1_start_time', 'case_2_start_time', 'case_3_start_time', 'case_4_start_time', 'case_5_start_time', 'case_6_start_time', 'case_7_start_time', 'case_8_start_time', 'case_9_start_time', 'case_10_start_time', 'case_11_start_time', 'case_12_start_time',
-        'case_1_end_time', 'case_2_end_time', 'case_3_end_time', 'case_4_end_time', 'case_5_end_time', 'case_6_end_time', 'case_7_end_time', 'case_8_end_time', 'case_9_end_time', 'case_10_end_time', 'case_11_end_time', 'case_12_end_time',
-        'case_1_error_count', 'case_2_error_count', 'case_3_error_count', 'case_4_error_count', 'case_5_error_count', 'case_6_error_count', 'case_7_error_count', 'case_8_error_count', 'case_9_error_count', 'case_10_error_count', 'case_11_error_count', 'case_12_error_count',
+        'case_1_urgent', 'case_2_urgent', 'case_3_urgent', 'case_4_urgent', 'case_5_urgent', 'case_6_urgent', 'case_7_urgent', 'case_8_urgent', 'case_9_urgent', 'case_10_urgent', 'case_11_urgent', 'case_12_urgent', 'case_13_urgent', 'case_14_urgent', 'case_15_urgent',
+        'case_1_start_time', 'case_2_start_time', 'case_3_start_time', 'case_4_start_time', 'case_5_start_time', 'case_6_start_time', 'case_7_start_time', 'case_8_start_time', 'case_9_start_time', 'case_10_start_time', 'case_11_start_time', 'case_12_start_time', 'case_13_start_time', 'case_14_start_time', 'case_15_start_time',
+        'case_1_end_time', 'case_2_end_time', 'case_3_end_time', 'case_4_end_time', 'case_5_end_time', 'case_6_end_time', 'case_7_end_time', 'case_8_end_time', 'case_9_end_time', 'case_10_end_time', 'case_11_end_time', 'case_12_end_time', 'case_13_end_time', 'case_14_end_time', 'case_15_end_time',
+        'case_1_error_count', 'case_2_error_count', 'case_3_error_count', 'case_4_error_count', 'case_5_error_count', 'case_6_error_count', 'case_7_error_count', 'case_8_error_count', 'case_9_error_count', 'case_10_error_count', 'case_11_error_count', 'case_12_error_count', 'case_13_error_count', 'case_14_error_count', 'case_15_error_count',
+
         'list_intr_id', 'list_intr_time',
         'start_date', 'end_date'
     ]
-    
     pass
 
 class DatosQuiz(Page):
@@ -807,7 +985,8 @@ class Instrucciones(Page):
 class AtentionQuiz(Page):
     form_model = 'player'
     form_fields = [
-        'a_quiz_1', 'a_quiz_2', 'a_quiz_3'
+        'a_quiz_1', 'a_quiz_2', 'a_quiz_3', 'a_quiz_4', 'a_quiz_5', 'a_quiz_6',
+        'a_quiz_error_count'
     ]
     pass
 
@@ -841,4 +1020,10 @@ class FlowQuiz(Page):
     ]
     pass
 
-page_sequence = [DatosQuiz, Instrucciones, AtentionQuiz, BeginQuiz, MultiQuiz, Task, EndQuiz, FlowQuiz] #DatosQuiz, Instrucciones, AtentionQuiz, BeginQuiz,MultiQuiz,Task, EndQuiz, FlowQuiz
+class Training(Page):
+    form_model = 'player'
+    form_fields = []
+    pass
+
+page_sequence = [DatosQuiz, Instrucciones, AtentionQuiz, BeginQuiz, MultiQuiz, Training, Task, EndQuiz, FlowQuiz] #DatosQuiz,Instrucciones, AtentionQuiz, BeginQuiz,MultiQuiz, Task, EndQuiz, FlowQuiz
+#page_sequence = [Training]
