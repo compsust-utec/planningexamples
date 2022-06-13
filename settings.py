@@ -25,6 +25,13 @@ SESSION_CONFIGS = [
          display_name="Interruption Research",
          num_demo_participants=1,
      ),
+
+    dict(
+        name='interruption_research_2',
+        app_sequence=['interruption_research_2'],
+        display_name="Interruption Research 2",
+        num_demo_participants=1,
+    ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs

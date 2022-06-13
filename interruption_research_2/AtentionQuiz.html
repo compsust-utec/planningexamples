@@ -1,0 +1,149 @@
+{{ block title }}
+
+{{ endblock }}
+
+{{ block content }}
+
+<div>
+    <div class="col">
+        <h4>Responde a las siguientes preguntas y/o afirmaciones</h4>
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">{{ form.a_quiz_1.label}}</label>
+            <br>
+            {{ form.a_quiz_1 }}
+            <div id="question_1-error" class="invalid-feedback">
+                Respuesta Incorrecta
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">{{ form.a_quiz_2.label }}</label>
+            <br>
+            {{ form.a_quiz_2 }}
+            <div id="question_2-error" class="invalid-feedback">
+                Respuesta Incorrecta
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">{{ form.a_quiz_3.label }}</label>
+            <br>
+            {{ form.a_quiz_3 }}
+            <div id="question_3-error" class="invalid-feedback">
+                Respuesta Incorrecta
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">{{ form.a_quiz_4.label }}</label>
+            <br>
+            {{ form.a_quiz_4 }}
+            <div id="question_4-error" class="invalid-feedback">
+                Respuesta Incorrecta
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">{{ form.a_quiz_5.label }}</label>
+            <br>
+            {{ form.a_quiz_5 }}
+            <div id="question_5-error" class="invalid-feedback">
+                Respuesta Incorrecta
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">{{ form.a_quiz_6.label }}</label>
+            <br>
+            {{ form.a_quiz_6 }}
+            <div id="question_6-error" class="invalid-feedback">
+                Respuesta Incorrecta
+            </div>
+        </div>
+    </div>
+
+    <input type="text" name="a_quiz_error_count" id="a_quiz_error_count" value="0" style="display: none;"/>
+</div>
+
+<button id="submit-button" class="otree-btn-next btn btn-success" onclick="validate_answers()">
+    Siguiente
+</button>
+
+<script>
+    const submit_elem = document.getElementById('submit-button');
+    const correct_result = [0, 0, 0, 0, 1, 1];
+
+    const question_list = document.getElementsByTagName('input');
+    for (var j = 0; j < question_list.length; j++) {
+        question_list[j].addEventListener('input', question_validate);
+    }
+
+    function question_result() {
+        let ans_list = [];
+        let item_id_prev = '';
+        let item_value_prev = -1;
+
+        for (var i = 0; i < question_list.length; i++) {
+            let question_item = question_list[i];
+            if (question_item.id.search('-') == -1) {
+                if (item_id_prev != '') {
+                    ans_list.push(item_value_prev);
+                    item_value_prev = -1;
+                    item_id_prev = '';
+                }
+                ans_list.push(question_item.value);
+            } else {
+                let item_id = question_item.id.split('-')[0];
+                let sub_item_id = question_item.id.split('-')[1];
+                if (item_id_prev == '') {
+                    item_id_prev = item_id;
+                }
+                if (item_id_prev != item_id) {
+                    ans_list.push(item_value_prev);
+                    item_value_prev = -1;
+                    item_id_prev = item_id;
+                }
+                if (question_item.checked) {
+                    item_value_prev = question_item.value;
+                }
+            }
+        }
+        if (item_id_prev != '') {
+            ans_list.push(item_value_prev);
+            item_value_prev = -1;
+            item_id_prev = '';
+        }
+        return ans_list;
+    }
+
+    function question_validate() {
+        let result = question_result();
+        let is_correct = true;
+        for (var i = 0; i < correct_result.length; i++) {
+            if (correct_result[i] != result[i]) {
+                is_correct = false;
+                error_count++;
+            }
+        }
+        if (is_correct) {
+            submit_elem.setAttribute('type', 'submit');
+        } else {
+            submit_elem.setAttribute('type', 'button');
+        }
+
+        return is_correct;
+    }
+
+    function validate_answers() {
+        let result = question_result();
+        let error_count = 0;
+        for (var i = 0; i < correct_result.length; i++) {
+            if (correct_result[i] != result[i]) {
+                let question_elem = document.getElementById('question_' + (i + 1).toString() + '-error');
+                question_elem.style.display = 'block';
+                setTimeout(function () { question_elem.style.display = 'none'; }, 5 * 1000);
+                error_count++;
+            }
+        }
+        let error_elem = document.getElementById('a_quiz_error_count');
+        error_elem.value = parseInt(error_elem.value) + error_count;
+    }
+
+</script>
+
+{{ endblock }}
