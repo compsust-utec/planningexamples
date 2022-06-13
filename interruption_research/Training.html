@@ -59,63 +59,10 @@
   .open-inbox {
     display: none;
   }
-
-  .button-inbox {
-    background: url(/static/inbox.png);
-    height: 58px;
-    background-position: center;
-    background-size: cover;
-    border: none;
-    width: 58px;
-  }
-
 </style>
 
 <div class="row">
-  <div class="col-12 open-inbox">
-    <div class="side-section">
-      <h3>Correo</h3>
-      <button type="button" onclick="close_inbox()" class="btn btn-primary button-inbox">
-        
-      </button>
-      <h3></h3>
-      <div class="email">
-        <ul class="list-group" id="email-group">
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="col-4 close-inbox">
-    <div class="side-section">
-      <h3>Correo</h3>
-      <button type="button" onclick="open_inbox()" class="btn btn-primary position-relative button-inbox">
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="unread-msg"
-          style="display: none">
-        </span>
-      </button>
-    </div>
-    <div class="side-section">
-      <h3>Tiempo Restante</h3>
-      <h1 id="time-left" style="text-align:center"></h1>
-    </div>
-    <div class="side-section">
-      <h3>Trabajo en proceso</h3>
-      <div class="wip">
-        <ul class="list-group" id="wip-group">
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div id="case-container" class="col-8 close-inbox">
-  </div>
-
-  <div id="extra-container" class="extra-data">
-    <input type="text" name="list_intr_id" id="list_intr_id" />
-    <input type="text" name="list_intr_time" id="list_intr_time" />
-
-    <input type="text" name="start_date" id="start_date" />
-    <input type="text" name="end_date" id="end_date" value="-1" />
+  <div id="case-container" class="col-12 close-inbox">
   </div>
 </div>
 
@@ -895,148 +842,13 @@
 
   var case_list = [
     {
-      "Asunto": "CASO 8484 - RECLAMO",
-      "Texto": "Estimados señores o señoras,<br><br>\n          Quiero preguntarle sobre la cobertura de mi seguro de automóvil. El 26 de Mayo tuve un choque y mi auto\n          resultó dañado, y esto presenta daños en la parte delantera del auto. El parachoques fue destruido. Quisiera\n          saber si el seguro de vehículo que tengo en su empresa cubre esto. Si la respuesta es afirmativa, quisiera\n          información sobre los pasos que debo seguir para activar mi seguro de vehículo.<br><br>\n          Quedo a la espera de su amable respuesta.<br>\n          Atentamente,<br>\n          Vanessa Arteaga Molina",
+      "Asunto": "Caso de entrenamiento",
+      "Texto": "<b>Revisa este video para poder saber cómo realizar las tareas del experimento.<br> Enlace: https://drive.google.com/drive/folders/1_LE3x1o5IHyZ1Vi_kDv5cIAH9FbEny1Q</b> <br><br>Estimados señores o señora,<br><br>Quiero hacer una pregunta sobre mi seguro de automóvil. El 10 de mayo, tuve un accidente automovilístico en el que se dañó la parte delantera de mi automóvil. Además, tuve un golpe en el brazo derecho, me automediqué; sin embargo, el dolor persiste hasta el día de hoy y con mayor intensidad. Me gustaría saber si puedo ir a un hospital privado cubierto con el seguro de vehículo que tengo con ustedes y mandar mi auto al taller. Si la respuesta es afirmativa, quisiera información sobre los pasos que debo seguir para activar mi seguro de vehículo.<br><br>Quedo a la espera de su amable respuesta.<br>Atentamente,<br>Alvaro Maldonado",
       "Complejo": false,
       "TiempoEnvio": 0,
-      "Respuestas": ["Vanessa", "Arteaga", "BXD-017", "Plan Regular", "01/05/2022", 2, 4, 2, 2, "respuesta libre"]
-    },
-
-    {
-      "Asunto": "CASO 8485 - RECLAMO",
-      "Texto": "Estimados señores o señoras,<br><br>\n          El 5 de junio hice un viaje por carretera hacia el norte, choqué mi automóvil con otro automóvil y se\n          rompieron los parachoques. El choque se produjo de tarde y fue muy fuerte. Mi amigo y yo estábamos en el auto,\n          ambos salimos ilesos. Quisiera saber si el seguro de vehículo que tengo en su empresa cubre este tipo de accidentes.<br><br>\n          Quedo a la espera de su amable respuesta.<br>\n          Atentamente,<br>\n          Astrid Wilson",
-      "Complejo": true,
-      "TiempoEnvio": 0,
-      "Respuestas": ["Astrid", "Wilson", "BXD-011", "Plan Oro", "01/08/2022", 1, 2, 1, "Maria Perez", "Maria Perez", "423 North Street", "ROC - 2211", 1, 1, "respuesta libre"],
-      "Reporte": "technical_report_7.png"
-    },
-
-    {
-      "Asunto": "CASO 8486 - RECLAMO",
-      "Texto": "Estimados señores o señoras,<br><br>\n          Me gustaría que me aconsejaran sobre mi seguro de coche. El 27 de Mayo sufrí el robo de partes de mi auto.\n        El robo fue de la radio y la rueda de repuesto. Esto sucedió en la intersección de la calle Quinta con la \n            Tercera Avenida. Me gustaría saber si el seguro del vehículo que tengo cubre esto. Si la respuesta es sí, \n          por favor hágamelo saber lo antes posible para hacer los arreglos correspondientes.<br><br>\n     Gracias de antemano por su ayuda.<br>\n                 Atentamente<br>\n             Jesus Walker",
-      "Complejo": false,
-      "TiempoEnvio": 147,
-      "Respuestas": ["Jesus", "Walker", "BXD-012", "Plan Diamante", "01/09/2022", 1, 1, 1, 1, "respuesta libre"]
-    },
-
-    {
-      "Asunto": "CASO 8487 - RECLAMO",
-      "Texto": "Estimados señores o señoras,<br><br>\n Quiero preguntar sobre mi seguro de automóvil. El 26 de Mayo, tuve un pequeño accidente en el que resultó\n dañado otro automóvil. En particular, el otro automóvil tiene daños en el parachoques trasero.\n Quisiera saber si el seguro del vehículo que tengo con ustedes cubre esto. Si la respuesta es afirmativa,\n quisiera información sobre los pasos que debo seguir para activar mi seguro de vehículo.<br><br>\n Quedo a la espera de su amable respuesta.\nAtentamente<br>\nMaria Sinfuentes",
-      "Complejo": false,
-      "TiempoEnvio": 254,
-      "Respuestas": ["Maria", "Sinfuentes", "BXD-003", "Plan Diamante", "01/12/2022", 1, 1, 1, 1, "respuesta libre"]
-    },
-
-    {
-      "Asunto": "CASO 8488 - RECLAMO URGENTE",
-      "Texto": "Estimados señores o señoras,<br><br>\nQuiero preguntarle sobre mi seguro de automóvil. Ayer tuve un accidente de coche en el que me fracturé\n el tobillo. Me gustaría saber si el seguro del vehículo puede cubrir mis gastos médicos y \n técnicos. La respuesta a esto es crítica porque si es posible, tal vez pueda ir a una clínica privada.<br><br>\n Quedo a la espera de su amable respuesta.\nAtentamente,<br>\nAlannis Diaz",
-      "Complejo": false,
-      "TiempoEnvio": 544,
-      "Respuestas": ["Alannis", "Diaz", "BXD-014", "Plan Plata", "01/11/2022", 1, 3, 2, 2, "respuesta libre"]
-    },
-
-    {
-      "Asunto": "CASO 8489 - RECLAMO",
-      "Texto": "Estimados señores o señora,<br><br>\n Quiero hacer una pregunta sobre mi seguro de automóvil. La semana pasada, tuve un accidente y se dañó la\n parte delantera de mi automóvil. Precisamente, el paragolpes quedó destrozado. Además de eso,\n causé daños a un automóvil extranjero, donde rayé la ventana delantera y se destruyeron el parachoques y \nla luz delantera. Quisiera saber si el seguro de vehículo que tengo en su empresa cubre este tipo de \n accidentes. Si la respuesta es sí, me gustaría obtener más información al respecto.<br><br>\n Espero su respuesta.\n Atentamente,<br>\n William Rivera",
-      "Complejo": true,
-      "TiempoEnvio": 739,
-      "Respuestas": ["William", "Rivera", "BXD-016", "Plan Regular", "01/08/2022", 1, 4, 2, "Matheo Morgan", "Matheo Morgan", "521 Wall Street", "TUH - 1044", 1, 2, "respuesta libre"],
-      "Reporte": "technical_report_1.png"
-    },
-
-    {
-      "Asunto": "CASO 8490 - RECLAMO",
-      "Texto": "Estimados señores o señoras,<br><br>\n El 27 de Mayo conduje a la ciudad vecina con mi novio. Para llegar a esta ciudad, tuve que pasar\n por un camino no autorizado, ya que era la ruta más corta para llegar a mi destino. Como eran\n más de las 10 de la noche, no me di cuenta de que había un letrero que me informaba sobre un camino no autorizado.\n Como resultado, entré en un camino sin terminar y tuve un accidente menor. El auto tenía daños en la parte\n delantera. Quisiera saber si el seguro de vehículo que tengo en su empresa cubre este\n tipo de accidentes. Su respuesta me ayudará a hacer los arreglos correspondientes.<br><br>\nQuedo a la espera de su amable respuesta.\nAtentamente,<br>\nNickole Rojas",
-      "Complejo": true,
-      "TiempoEnvio": 1270,
-      "Respuestas": ["Nickole", "Rojas", "BXD-016", "Plan Diamante", "01/03/2022", 2, 1, 1, "Merry Valverde", "Merry Valverde", "502 Wall Street", "DEA - 2214", 1, 2, "respuesta libre"],
-      "Reporte": "technical_report_3.png"
-    },
-
-    {
-      "Asunto": "CASO 8491 - RECLAMO",
-      "Texto": "Estimados señores o señoras,<br><br>\nAyer en un viaje por carretera hacia el sur, choqué mi automóvil con otro automóvil y \nse rompieron los parachoques. El choque se produjo de noche y fue muy fuerte. Mi amigo y yo estábamos en el \nauto, ambos salimos ilesos. Quisiera saber si el seguro de vehículo que tengo en su empresa cubre este\n tipo de accidentes.<br><br>\n Quedo a la espera de su amable respuesta.\n Atentamente,<br>\nBenny Garcia",
-      "Complejo": true,
-      "TiempoEnvio": 1328,
-      "Respuestas": ["Benny", "Garcia", "BXD-020", "Plan Regular", "01/08/2022", 1, 4, 2, "Alanis Belevan", "Alanis Belevan", "263 Miro Quesada Av.", "MIA - 3314", 1, 2, "respuesta libre"],
-      "Reporte": "technical_report_5.png"
-    },
-
-    {
-      "Asunto": "CASO 8492 - RECLAMO URGENTE",
-      "Texto": "Estimados señores o señoras,<br><br>\n Quiero hacer una pregunta sobre mi seguro de automóvil. El 26 de Mayo  tuve un accidente \nautomovilístico en el que se dañó la pintura de mi auto en la puerta del conductor. Es más, me golpeé la \nfrente. Ayer tuve dolor y me he automedicado; sin embargo, el dolor persiste hasta el día de hoy \ny con mayor intensidad. Quisiera saber si puedo ir a un hospital privado cubierto por el seguro de mi vehículo.\n Mi coche también está en el taller mecánico. Es importante para mí si el seguro puede \n cubrir mi tratamiento médico.<br><br>\nQuedo a la espera de su amable respuesta.\nAtentamente,<br>\nPaty Jimenez",
-      "Complejo": false,
-      "TiempoEnvio": 1587,
-      "Respuestas": ["Paty", "Jimenez", "BXD-010", "Plan Oro", "01/07/2022", 1, 2, 1, 1, "respuesta libre"]
-    },
-
-    {
-      "Asunto": "CASO 8493 - RECLAMO URGENTE",
-      "Texto": "Estimados señores o señora,<br><br>\n Quiero hacer una pregunta sobre mi seguro de automóvil. Hace dos días, tuve un grave accidente\n automovilístico, donde sufrí un golpe en el brazo izquierdo. Me comuniqué con usted y enviaron un \n inspector para revisar lo sucedido. El Sr. August Marruecos, que vino a revisar el accidente, me dijo que\n la compañía de seguros trabajará para obtener una compensación por las lesiones y daños a mi vehículo. \n Sin embargo, hasta la fecha no se ha recibido ninguna comunicación por su parte. Quisiera saber si el \n seguro del vehículo que tengo con ustedes cubre esto. Si la respuesta es afirmativa, me gustaría recibir\n información sobre los pasos que debo seguir para utilizar mi seguro de vehículo.<br><br>\n Quedo a la espera de su amable respuesta.\n Atentamente, <br>\n Adrian Molina",
-      "Complejo": true,
-      "TiempoEnvio": 1679,
-      "Respuestas": ["Adrian", "Molina", "BXD-001", "Plan Oro", "01/10/2022", 1, 2, 1, "Mario Valencia", "Piero Valencia", "521 Wall Street", "TAH - 1014", 1, 1, "respuesta libre"],
-      "Reporte": "technical_report_2.png"
-    },
-
-    {
-      "Asunto": "CASO 8494 - RECLAMO",
-      "Texto": "Estimados señores o señoras,<br><br>\n Quiero hacer una pregunta sobre mi seguro de automóvil. El 28 de Mayo noté una falla mecánica \n en el motor del auto, por lo que me gustaría tomar un servicio adicional para la asistencia del \n vehículo. Me gustaría saber si el seguro del vehículo que tengo con ustedes cubre esta avería. Si la respuesta \n es afirmativa, quisiera información sobre los pasos que debo seguir para activar mi seguro de vehículo.<br><br>\n Quedo a la espera de su amable respuesta.\nAtentamente <br>\n Abraham Smith",
-      "Complejo": false,
-      "TiempoEnvio": 2392,
-      "Respuestas": ["Abraham", "Smith", " BXD-009", "Plan Plata", "01/08/2022", 1, 3, 2, 2, "respuesta libre"]
-
-    },
-
-    {
-      "Asunto": "CASO 8495 - RECLAMO",
-      "Texto": "Estimados señores o señora,<br><br>\n Hace dos días, en un viaje por carretera hacia el sur, choqué mi auto con otro auto y se rompieron los parachoques.\n El choque se produjo de noche y fue muy fuerte. Mi esposo y yo estábamos en el auto,\n ambos salimos ilesos. Quisiera saber si el seguro de vehículo que tengo en su empresa cubre este tipo \n de accidentes. Su respuesta me ayudará a hacer los arreglos necesarios.<br><br>\n Gracias por adelantado por tu respuesta.\n Atentamente, <br>\n Fernanda Santos",
-      "Complejo": true,
-      "TiempoEnvio": 2411,
-      "Respuestas": ["Fernanda", "Santos", "BXD-013", "Plan Regular", "01/10/2022", 1, 4, 2, "Mario Lezameta", "Jean Salas", "213 Luis Falluci Av.", "ERW - 1114", 1, 2, "respuesta libre"],
-      "Reporte": "technical_report_6.png"
-    },
-
-    {
-      "Asunto": "CASO 8496 - RECLAMO",
-      "Texto": "Estimados señores o señoras,<br><br>\n Quisiera consultar sobre mi seguro de auto. El 27 de Mayo  participé en una carrera de autos \n que se llevó a cabo para recaudar fondos para niños con discapacidades motoras. Durante esta carrera, \n hubo un accidente colectivo, donde mi auto sufrió daños menores. Quisiera consultar sobre mi \ncobertura con respecto a este evento. Si la respuesta es afirmativa, quisiera información sobre los pasos \n que debo seguir para activar mi seguro de vehículo.<br><br>\nGracias de antemano por su ayuda.\nAtentamente,<br>\n Micaela Harris",
-      "Complejo": false,
-      "TiempoEnvio": 2526,
-      "Respuestas": ["Micaela", "Harris", "BXD-008", "Plan Regular", "01/05/2022", 2, 4, 2, 2, "respuesta libre"]
-    },
-
-    {
-      "Asunto": "CASO 8497 - RECLAMO",
-      "Texto": "Estimados señores o señoras,<br><br>\n Tengo una duda sobre mi seguro de coche. El 26 de Mayo  tuve un accidente automovilístico en el que\n se dañó totalmente la perilla de la puerta de mi automóvil. De acuerdo con el informe del accidente,\n mi automóvil estaba sobrepasando el nivel de velocidad legal, y esta fue la principal causa del choque.\n Quisiera saber si el seguro del vehículo que tengo con ustedes cubre esto. A continuación, \n daré los pasos correspondientes.<br><br>\n Quedo a la espera de su amable respuesta.\nAtentamente,<br>\n Valeria Jimenez",
-      "Complejo": false,
-      "TiempoEnvio": 2867,
-      "Respuestas": ["Valeria", "Jimenez", "BXD-006", "Plan Diamante", "01/03/2022", 2, 3, 1, 2, "respuesta libre"]
-    },
-
-    {
-      "Asunto": "CASO 8498 - RECLAMO",
-      "Texto": "Estimados señores o señora,<br><br>\n Me gustaría preguntarle sobre mi seguro de automóvil. Ayer tuve un accidente automovilístico,\n donde sufrí un golpe en la pierna derecha. Me comuniqué con usted y enviaron un inspector para revisar\n lo sucedido. El Sr. Hels Minde, quien vino a revisar el accidente, me dijo que la compañía de \n seguros trabajará para obtener una compensación por mis lesiones y daños a mi vehículo. Sin embargo,\n hasta la fecha, no he recibido ninguna comunicación de ellos. Quisiera saber si el seguro del vehículo \n que tengo con ustedes cubre esto. Si es así, podría hacer los arreglos necesarios.<br><br>\nQuedo a la espera de su amable respuesta.\nAtentamente,<br>\nPaty Jimenez",
-      "Complejo": true,
-      "TiempoEnvio": 3024,
-      "Respuestas": ["Paty", "Jimenez", "BXD-010", "Plan Oro", "01/07/2022", 1, 2, 1, "Jeremy Salas", "Thiago Salas", "263 Petit Thouars Av.", "ERI - 3024", 1, 1, "respuesta libre"],
-      "Reporte": "technical_report_4.png"
-    },
-
+      "Respuestas": ["Alvaro", "Maldonado", "BXD-002", "Plan Plata", "01/11/2022", 1, 3, 2, 2, "respuesta libre"]
+    }
   ];
-
-  let start_time = Date.now();
-  let end_time = null;
-
-  let inbox = 0;
-  let wip = 0;
-
-  let intr_list_id = [1];
-  let intr_list_time = [0];
-
-  let prev_case = 0;
-  let cur_case = intr_list_id[0];
-
-  let unread_msg = 0;
 
   function build_case() {
     var case_container = document.getElementById('case-container');
@@ -1064,55 +876,6 @@
     }
   }
 
-  function build_extra() {
-    var extra_container = document.getElementById('extra-container');
-    var extra_template =  `
-      <input type="text" name="case_{case_id}_urgent" id="case_{case_id}_urgent" />
-      <input type="text" name="case_{case_id}_send_time" id="case_{case_id}_send_time" />
-      <input type="text" name="case_{case_id}_start_time" id="case_{case_id}_start_time" />
-      <input type="text" name="case_{case_id}_end_time" id="case_{case_id}_end_time" />
-      <input type="text" name="case_{case_id}_error_count" id="case_{case_id}_error_count" value="0" />
-    `;
-
-    for (var i = 0; i < case_list.length; i++) {
-      let extra_template_copy = extra_template;
-      extra_container.innerHTML += extra_template_copy.replaceAll('{case_id}', i + 1);
-    }
-  }
-
-  function build_timer() {
-    $('.otree-timer').hide();
-    document.addEventListener("DOMContentLoaded", function (event) {
-      $('.otree-timer__time-left').on('update.countdown', function (event) {
-        let totalSeconds = event.offset.totalSeconds;
-        let timeLeftElem = document.getElementById('time-left');
-        timeLeftElem.innerHTML = '<h>:<m>'.replace('<h>', Math.floor(totalSeconds / 60)).replace('<m>', String(totalSeconds % 60).padStart(2, "0"));
-        if (event.offset.totalSeconds === 60) {
-          $('.otree-timer').show();
-        }
-        if (event.offset.totalSeconds === 1) {
-          var end_date_elem = document.getElementById('end_date');
-          end_date_elem.value = Date.now();
-        }
-      });
-    });
-  }
-
-  function build_alert() {
-    for (var i = 1; i < case_list.length; i++) {
-      var case_value = case_list[i];
-      setTimeout(create_alert.bind(null, i), case_value.TiempoEnvio * 1000);
-    }
-    for (var i = 0; i < case_list.length; i++) {
-      var start_elem = document.getElementById('case_' + (i + 1).toString() + '_send_time');
-      start_elem.value = case_list[i].TiempoEnvio;
-      let urgent_elem = document.getElementById('case_' + (i + 1).toString() + '_urgent');
-      urgent_elem.value = case_list[i].Complejo;
-    }
-    var start_date_elem = document.getElementById('start_date');
-    start_date_elem.value = start_time;
-  }
-
   function build_event() {
     let input_list = [];
     for (var i = 0; i < case_list.length; i++) {
@@ -1132,47 +895,11 @@
 
   function build_page() {
     build_case();
-    build_extra();
-    build_timer();
-    build_alert();
     build_event();
-    update_inbox();
-    update_wip();
     open_case(0);
   }
 
-  function create_alert(id) {
-    alert(case_send_time(id) + ' - ' + case_list[id].Asunto);
-    inbox = id;
-
-    let unread_msg_elem = document.getElementById('unread-msg');
-    unread_msg_elem.style.display = 'block'
-    unread_msg_elem.innerHTML = ++unread_msg;
-  }
-
-  function create_intr(id) {
-    if ((id + 1) == cur_case) {
-      return;
-    }
-
-    let intr_time = (Date.now() - start_time) / 1000;
-
-    intr_list_id.push(id + 1);
-    intr_list_time.push(intr_time);
-
-    let intr_id_elem = document.getElementById('list_intr_id');
-    let intr_time_elem = document.getElementById('list_intr_time');
-
-    intr_id_elem.value = intr_list_id.toString();
-    intr_time_elem.value = intr_list_time.toString();
-
-    prev_case = cur_case - 1;
-    cur_case = id + 1;
-  }
-
   function open_case(id) {
-    close_inbox(false);
-    create_intr(id);
     for (var i = 0; i < case_list.length; i++) {
       let case_id = 'case-' + (i + 1).toString();
       let case_elem = document.getElementById(case_id);
@@ -1184,96 +911,9 @@
     }
   }
 
-  function open_inbox() {
-    create_intr(-1);
-
-    let open_inbox_elem = document.getElementsByClassName('open-inbox');
-    let close_inbox_elem = document.getElementsByClassName('close-inbox');
-
-    for (var i = 0; i < close_inbox_elem.length; i++) {
-      close_inbox_elem[i].style.display = 'none';
-    }
-
-    for (var i = 0; i < open_inbox_elem.length; i++) {
-      open_inbox_elem[i].style.display = 'block';
-    }
-
-    wip = inbox;
-
-    update_inbox();
-    update_wip();
-
-    let unread_msg_elem = document.getElementById('unread-msg');
-    unread_msg_elem.style.display = 'none';
-    unread_msg = 0;
-  }
-
-  function close_inbox(intr = true) {
-    if (intr) {
-      create_intr(prev_case);
-    }
-
-    let open_inbox_elem = document.getElementsByClassName('open-inbox');
-    let close_inbox_elem = document.getElementsByClassName('close-inbox');
-
-    for (var i = 0; i < close_inbox_elem.length; i++) {
-      close_inbox_elem[i].style.display = 'block';
-    }
-
-    for (var i = 0; i < open_inbox_elem.length; i++) {
-      open_inbox_elem[i].style.display = 'none';
-    }
-  }
-
-  function update_inbox() {
-    let inbox_elem = document.getElementById('email-group');
-    let email_elem = `
-      <li class="list-group-item email-msg" onclick="open_case({case-id})">
-        <p>{case-msg}</p>
-      </li>
-    `;
-    inbox_elem.innerHTML = '';
-    for (var i = 0; i <= inbox; i++) {
-      let email_copy_elem = email_elem;
-      email_copy_elem = email_copy_elem.replaceAll('{case-id}', i);
-      email_copy_elem = email_copy_elem.replaceAll('{case-msg}', case_send_time(i) + ' - ' + case_list[i].Asunto);
-      inbox_elem.innerHTML += email_copy_elem;
-    }
-  }
-
-  function update_wip() {
-    let wip_elem = document.getElementById('wip-group');
-    let work_elem = `
-      <li class="list-group-item wip-elem" onclick="open_case({case-id})">
-        <p>{work-prog}</p>
-        <p>{case-msg}</p>
-      </li>
-    `;
-    wip_elem.innerHTML = '';
-    for (var i = 0; i <= wip; i++) {
-      let work_copy_elem = work_elem;
-      work_copy_elem = work_copy_elem.replaceAll('{case-id}', i);
-      work_copy_elem = work_copy_elem.replaceAll('{case-msg}', case_list[i].Asunto);
-      work_copy_elem = work_copy_elem.replaceAll('{work-prog}', case_progress(i).toFixed(0).toString() + ' %');
-      wip_elem.innerHTML += work_copy_elem;
-    }
-  }
-
   function input_event(id, input_name) {
     var question_error_elem = document.getElementById(input_name + '-error');
     question_error_elem.style.display = 'none';
-    let start_elem = document.getElementById('case_' + (id + 1).toString() + '_start_time');
-    if (start_elem == "") {
-      start_elem.value = ((Date.now() - start_time) / 1000) - case_list[case_id - 1].TiempoEnvio;
-    }
-    update_wip();
-  }
-
-  function case_send_time(id) {
-    let temp_time = new Date(start_time + case_list[id].TiempoEnvio * 1000);
-    timeHours = temp_time.getHours();
-    timeMinutes = temp_time.getMinutes().toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
-    return timeHours + ':' + timeMinutes;
   }
 
   function case_result(id) {
@@ -1361,17 +1001,6 @@
     return question_list;
   }
 
-  function case_progress(id) {
-    let result = case_result(id);
-    let progress = 0;
-    for (var i = 0; i < result.length; i++) {
-      if (result[i].toString() != '' && result[i].toString() != '-1') {
-        progress++;
-      }
-    }
-    return progress * 100.0 / result.length;
-  }
-
   function case_validate(id, show_alert=true) {
     let result = case_result(id);
     let question = case_question(id);
@@ -1398,8 +1027,6 @@
       let correct_elem = document.getElementById('alert-correct-answer');
       correct_elem.style.display = 'block';
       setTimeout(function () { correct_elem.style.display = 'none'; }, 5 * 1000);
-      var end_elem = document.getElementById('case_' + case_id.toString() + '_end_time');
-      end_elem.value = ((Date.now() - start_time) / 1000) - case_list[case_id - 1].TiempoEnvio;
       let all_correct = true;
       for (var i = 0; i < case_list.length; i++) {
         if (i == (case_id - 1)) {
@@ -1418,8 +1045,6 @@
       let error_elem = document.getElementById('alert-wrong-answer');
       error_elem.style.display = 'block';
       setTimeout(function () { error_elem.style.display = 'none'; }, 5 * 1000);
-      let error_count_elem = document.getElementById('case_' + case_id.toString() + '_error_count');
-      error_count_elem.value = parseInt(error_count_elem.value) + 1;
     }
   }
 
