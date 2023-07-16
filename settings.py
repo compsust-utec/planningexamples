@@ -37,7 +37,7 @@ SESSION_CONFIGS = [
         app_sequence=['interruption_research_3'],
         display_name="Interruption Research 3",
         num_demo_participants=1,
-    ),
+    )
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
