@@ -6,7 +6,7 @@ Your description
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'simple_task'
+    NAME_IN_URL = 'interruption_research_3'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
 
