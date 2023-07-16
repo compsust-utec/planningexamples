@@ -31,12 +31,6 @@ SESSION_CONFIGS = [
         app_sequence=['interruption_research_2'],
         display_name="Interruption Research 2",
         num_demo_participants=1,
-    ),
-    dict(
-        name='interruption_research_3',
-        app_sequence=['interruption_research_3'],
-        display_name="Interruption Research 3",
-        num_demo_participants=1,
     )
 ]
 
